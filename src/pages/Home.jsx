@@ -1,8 +1,14 @@
+import { Fragment } from "react"
+import UserResult from "../components/users/UserResult"
+
 const Home = () => {
     return (
-        <div>
-            <h1 className="text-6xl">Welcome</h1>
-        </div>
+        <Fragment>
+
+            {/* search component will go here */}
+            <UserResult />
+
+        </Fragment>
     )
 }
 
