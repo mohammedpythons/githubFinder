@@ -1,11 +1,12 @@
 import { Fragment } from "react"
 import UserResult from "../components/users/UserResult"
+import UserSearch from "../components/users/UserSearch"
 
 const Home = () => {
     return (
         <Fragment>
 
-            {/* search component will go here */}
+            <UserSearch />
             <UserResult />
 
         </Fragment>
