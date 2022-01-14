@@ -5,6 +5,7 @@ import Alert from "./components/layout/Alert";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import User from "./components/users/User";
 function App() {
   return (
     <Router>
@@ -17,6 +18,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/" element={<Home />} />
             <Route path="/notfound" element={<NotFound />} />
+            <Route path="/user/:login" element={<User />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </main>
