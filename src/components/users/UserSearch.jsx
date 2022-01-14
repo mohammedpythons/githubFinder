@@ -1,23 +1,24 @@
 import { useState, useContext } from "react";
 import GithubContext from "../../context/github/GithubContext";
+import AlertContext from "../../context/alert/AlertContext";
 const UserSearch = () => {
+  const { clearUsers, searchUsers, users } = useContext(GithubContext);
+  const {setAlert} = useContext(AlertContext);
 
-    const { clearUsers ,searchUsers, users } = useContext(GithubContext)
+  const [name, setName] = useState("");
 
-    const [name, setName] = useState('');
-
-    const handleSubmit = (e) =>{
-        e.preventDefault();
-        if (name === ''){
-            alert("please enter something!")
-        }else {
-            // todo
-            searchUsers(name)
-        }
-
-
-        setName('');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (name === "") {
+      // alert("please enter something!");
+      setAlert("please Enter something", "error");
+    } else {
+      // todo
+      searchUsers(name);
     }
+
+    setName("");
+  };
 
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 mb-8 gap-8">
@@ -32,14 +33,23 @@ const UserSearch = () => {
                 onChange={(e) => setName(e.target.value)}
                 value={name}
               />
-              <button className="absolute top-0 right-0 rounded-l-none w-36 btn btn-lg" type="submit" >go</button>
+              <button
+                className="absolute top-0 right-0 rounded-l-none w-36 btn btn-lg"
+                type="submit"
+              >
+                go
+              </button>
             </div>
           </div>
         </form>
       </div>
-      {users.length > 0 && (<div>
-        <button className="btn btn-ghost btn-lg" onClick={clearUsers}>clear</button>
-      </div>)}
+      {users.length > 0 && (
+        <div>
+          <button className="btn btn-ghost btn-lg" onClick={clearUsers}>
+            clear
+          </button>
+        </div>
+      )}
     </div>
   );
 };
