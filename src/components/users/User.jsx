@@ -4,15 +4,19 @@ import Spinner from "../layout/Spinner";
 import GithubContext from "../../context/github/GithubContext";
 import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import RepoList from "../repos/RepoList";
 
 const User = () => {
-  const { getUser, user, isLoading } = useContext(GithubContext);
+  const { getUser, user, isLoading, getRepos, repos } = useContext(GithubContext);
   const params = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     getUser(params.login);
+    getRepos(params.login);
   }, []);
+
+
 
   const {
     name,
@@ -155,6 +159,7 @@ const User = () => {
                 </div>
              </div>
         </div>
+        <RepoList repos={repos} />
       </div>
     </div>
   );
