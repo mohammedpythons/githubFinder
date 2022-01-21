@@ -1,4 +1,4 @@
-# Githubfinder is an app that works with the github api to search users.
+# Githubfinder is an app that works with the github api to search GitHub profiles and see profile details.
 
 ## see project
 https://githubs-finder.vercel.app/
